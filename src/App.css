@@ -1,3 +1,41 @@
+.row {
+  /* display: flex; */
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  /* margin-top: 50px; */
+  gap: 5px
+}
+.todo {
+  margin: 0 50px 10px 50px;
+  padding: 10px;
+}
+.todoLeft {
+  display: flex;
+  gap: 10px;
+}
+.newTodo input[type=text] {
+  margin: 0 50px 10px 50px;
+  padding: 10px 10px 10px 40px;
+  border: 2px solid black;
+  width: 370px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.newTodo input[type=submit] {
+  margin: 0 0 10px 50px;
+  border: 2px solid black;
+  width: 424px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.strike {
+  text-decoration:line-through;
+}
 .App {
   text-align: center;
 }

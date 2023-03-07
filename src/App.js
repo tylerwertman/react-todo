@@ -1,23 +1,38 @@
-import logo from './logo.svg';
+import { useState } from 'react';
 import './App.css';
+import Todo from './components/Todo';
 
 function App() {
+  const [addTodo, setAddTodo]=useState("")
+  const [allTodos, setAllTodos] = useState([])
+  const todoCheck = {
+    text: addTodo,
+    complete: false
+  }
+  const addToList = (e) => {
+    e.preventDefault()
+    // console.log(addTodo)
+    if(addTodo.length===0){
+      return;
+    }
+    setAllTodos([...allTodos, todoCheck])
+  }
+
+  
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1 style={{textAlign:"left", marginLeft:"50px"}}>To Do List:</h1>
+      <form className="newTodo" onSubmit={(e)=>{
+        addToList(e);
+        setAddTodo("")
+      }}>
+        <input type="text" className="newTodo" placeholder="Add new item" value={addTodo} onChange={(e)=>{
+          setAddTodo(e.target.value)
+        }} />
+        <input type="submit" value="Add Todo"/>
+      </form>
+        <Todo allTodos={allTodos} addTodo={addTodo} setAllTodos={setAllTodos} todoCheck={todoCheck}/>
     </div>
   );
 }
