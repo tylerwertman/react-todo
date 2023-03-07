@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import './App.css';
 import Todo from './components/Todo';
+import Form from './components/Form';
 
 function App() {
   const [addTodo, setAddTodo]=useState("")
@@ -23,15 +24,7 @@ function App() {
   return (
     <div className="App">
       <h1 style={{textAlign:"left", marginLeft:"50px"}}>To Do List:</h1>
-      <form className="newTodo" onSubmit={(e)=>{
-        addToList(e);
-        setAddTodo("")
-      }}>
-        <input type="text" className="newTodo" placeholder="Add new item" value={addTodo} onChange={(e)=>{
-          setAddTodo(e.target.value)
-        }} />
-        <input type="submit" value="Add Todo"/>
-      </form>
+        <Form addToList={addToList} setAddTodo={setAddTodo} addTodo={addTodo}/>
         <Todo allTodos={allTodos} addTodo={addTodo} setAllTodos={setAllTodos} todoCheck={todoCheck}/>
     </div>
   );

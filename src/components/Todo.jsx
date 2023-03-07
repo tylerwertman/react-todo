@@ -1,6 +1,8 @@
 import React from 'react'
 
-const Todo = ({ allTodos, setAllTodos}) => {
+const Todo = (props) => {
+
+    const { allTodos, setAllTodos} = props
 
     const selectedTodo = (idx) => {
         selectedTodo(idx)
